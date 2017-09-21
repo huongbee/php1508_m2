@@ -16,15 +16,23 @@
 		echo "Your age is: ".$age.".";
 	}
 	function countDown($day, $month){
-		$sec_bd = mktime(0,0,0,$month,$day,date('Y'));
-		$sec_now = mktime(0,0,0,date('m'),date('d'),date('Y'));
-		$time = ($sec_now - $sec_bd) / 86400;
+		//1/9/2000 => 1/9/2017
+		
+		$sec_bd = mktime(0,0,0,$month,$day,date('Y')); //tính thời điểm họ sinh ra (s)
+
+		//21/9/2017
+		$sec_now = mktime(0,0,0,date('m'),date('d'),date('Y'));  //tính thời điểm nhấn btn (s)
+
+		$time = ($sec_now - $sec_bd) / 86400; //ngày
+		
+
 		if ($time > 0) {
 			$sec_next_bd = mktime(0,0,0,$month,$day,date('Y') + 1);
 			$rs = ($sec_next_bd - $sec_now) / 86400;
 			echo "It has been ".$time." day(s) since your birthday. The next is ".$rs." days from now.";
 		}
 		else if ($time < 0) {
+			
 			echo abs($time)." day(s) left until your birthday";
 		}
 		else{
