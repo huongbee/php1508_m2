@@ -52,29 +52,6 @@ if(isset($_GET['btnSend'])){
 		</div>
 	</form>
 </div>
-<style>
-input[type="text"]:invalid {
-    color: red;
-}
-input:required {
-  border-color: #800000;
-}
-input:required:invalid {
-  border-color:red;
-}
-input:valid {
-  border-color: green;
-}
-</style>
-<script>
-	
-	function checkInput(id,message){
-		var input = document.getElementById(id);
-		input.oninvalid = function(event) {
-		    event.target.setCustomValidity(message);
-		}
-	}
-	checkInput('name', 'Phố...')
-</script>
+
 </body>
 </html>
