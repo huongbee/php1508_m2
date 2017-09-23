@@ -21,13 +21,15 @@ if(isset($_GET['btnSend'])){
 
 
 ?>
+
+
 <div class="container">
 	<div class="col-8 offset-2">
 	<form accept-charset="utf-8" method="GET">
 		<h3>Contact Form</h3>
 		<div class="form-group">
 		    <label for="name">Full name:</label>
-		    <input type="text" class="form-control" value="<?=@$_GET['fullname']?>" id="name" name="fullname" placeholder="Enter your name">
+		    <input type="text" class="form-control" value="<?=@$_GET['fullname']?>" id="name" name="fullname" placeholder="Enter your name" required >
 		    email ko rỗng
   		</div>
 		
@@ -50,6 +52,29 @@ if(isset($_GET['btnSend'])){
 		</div>
 	</form>
 </div>
-
+<style>
+input[type="text"]:invalid {
+    color: red;
+}
+input:required {
+  border-color: #800000;
+}
+input:required:invalid {
+  border-color:red;
+}
+input:valid {
+  border-color: green;
+}
+</style>
+<script>
+	
+	function checkInput(id,message){
+		var input = document.getElementById(id);
+		input.oninvalid = function(event) {
+		    event.target.setCustomValidity(message);
+		}
+	}
+	checkInput('name', 'Phố...')
+</script>
 </body>
 </html>
