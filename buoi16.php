@@ -52,7 +52,7 @@ if(isset($_GET['btnSend'])){
 </style>
 <div class="container">
 	<div class="col-8 offset-2">
-	<form accept-charset="utf-8" method="GET">
+	<form accept-charset="utf-8" method="GET" action="#">
 		<h3>Contact Form</h3>
 		<div class="form-group">
 		    <label for="name">Full name:</label>
