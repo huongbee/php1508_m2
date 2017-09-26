@@ -24,10 +24,12 @@
 				    <label class="form-check-label"><input type="checkbox" class="form-check-input" name="rememberme"> Remember me</label>
 				</div>
 				<div class="form-group">
-				    <button type="submit" class="btn btn-primary">Login</button>
+				    <button type="submit" class="btn btn-primary" name="btnLogin">Login</button>
 		  		</div>
 		  	</form>
 		</div>
 	</div>
 </body>
 </html>
+
+
