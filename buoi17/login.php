@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,9 +9,30 @@
 	<title>Login</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 </head>
+
+<?php
+
+//tạo cookie
+setcookie('monhoc','PHP-MySQL',time()+120);
+echo 'đã setup cookie';
+
+
+
+?>
+
+
 <body>
 	<div class="container">
 		<div class="col-md-4 col-md-offset-4" style="margin:20px auto">
+			<?php
+			if(isset($_SESSION['username']) && isset($_SESSION['password'])){
+				echo 'Bạn đã đăng nhập';
+				header("refresh:5;url=home.php");
+			}
+			else{
+
+			?>
+
 			<form accept-charset="utf-8" method="POST" action="xuly_dangnhap.php">
 				<h2>Login</h3>
 				<div class="form-group">
@@ -27,6 +51,11 @@
 				    <button type="submit" class="btn btn-primary" name="btnLogin">Login</button>
 		  		</div>
 		  	</form>
+			<?php
+			}
+			?>
+
+
 		</div>
 	</div>
 </body>

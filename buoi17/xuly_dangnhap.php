@@ -1,11 +1,11 @@
 <?php
-
+session_start();
 if(isset($_POST['btnLogin'])){
 
-	print_r($_REQUEST);
+	//print_r($_REQUEST);
 
-	$username = trim($_POST['username']);
-	$password = trim($_POST['password']);
+	$_SESSION['username'] = trim($_POST['username']);
+	$_SESSION['password'] = trim($_POST['password']);
 	
 	if(isset($_POST['rememberme'])){
 		$remember = $_POST['rememberme'];
@@ -14,8 +14,10 @@ if(isset($_POST['btnLogin'])){
 		}	
 	}
 
-	if($username == 'admin' && $password=='admin123'){
+	if($_SESSION['username'] == 'admin' && $_SESSION['password']=='admin123'){
 		echo ' Đăng nhập thành công';
+		echo $_SESSION['username'];
+		echo $_SESSION['password'];
 	}
 	else{
 		header('location:login.php');
