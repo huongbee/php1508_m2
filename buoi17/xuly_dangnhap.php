@@ -10,14 +10,14 @@ if(isset($_POST['btnLogin'])){
 	if(isset($_POST['rememberme'])){
 		$remember = $_POST['rememberme'];
 		if($remember==1 || $remember=='on'){
-			echo $remember;
+			setcookie('username','admin',time()+300);
+			setcookie('password','admin123',time()+300);
+			header('location:home.php');
 		}	
 	}
 
 	if($_SESSION['username'] == 'admin' && $_SESSION['password']=='admin123'){
-		echo ' Đăng nhập thành công';
-		echo $_SESSION['username'];
-		echo $_SESSION['password'];
+		header('location:home.php');
 	}
 	else{
 		header('location:login.php');

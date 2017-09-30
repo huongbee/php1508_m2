@@ -13,8 +13,8 @@ session_start();
 <?php
 
 //tạo cookie
-setcookie('monhoc','PHP-MySQL',time()+120);
-echo 'đã setup cookie';
+//setcookie('monhoc','PHP-MySQL',time()+120);
+//echo 'đã setup cookie';
 
 
 
