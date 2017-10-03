@@ -42,7 +42,7 @@ class MonPHP extends MonHoc{
 
 	function setTen($name){
 		//$this->tenmon = $name;
-		$this->setTenMon($name);
+		parent::setTenMon($name);
 	}
 	function getTen(){
 		return $this->tenmon;
@@ -58,4 +58,17 @@ echo $php->getTenMon();
 
 // //echo $subject->tenmon; //HTML
 // echo $subject->getTenMon();
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
