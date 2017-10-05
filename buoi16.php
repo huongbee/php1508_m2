@@ -47,7 +47,7 @@ if(isset($_GET['btnSend'])){
 		color: green
 	}
 	input:invalid{
-		border:  red dashed 3px!important
+		border:  red dashed 1px!important
 	}
 </style>
 <div class="container">
