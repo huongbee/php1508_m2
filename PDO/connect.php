@@ -61,14 +61,16 @@ try{
 	$stmt->bindParam(1,$username); //phải tạo biến $username bên ngoài bindParam()
 	$stmt->bindParam(2,$id);*/
 
-	$stmt = $con->prepare("SELECT * FROM users WHERE username = :ten_nguoi_dung ");
+	//$stmt = $con->prepare("SELECT * FROM users WHERE username = :ten_nguoi_dung ");
 
-	$stmt->bindParam(":ten_nguoi_dung",$username);
-
+	//$stmt->bindParam(":ten_nguoi_dung",$username);
+	$stmt = $con->prepare("SELECT * FROM users");
 	if($stmt->execute()){
-		while($user = $stmt->fetch()){
-			print_r($user);
-		}
+		// while($user = $stmt->fetch(PDO::FETCH_OBJ)){
+		// 	print_r($user);
+		// }
+		$user = $stmt->fetchAll(PDO::FETCH_OBJ);
+		print_r($user);
 	}
 	else{
 		$err = $stmt->errorInfo();
