@@ -34,6 +34,12 @@ class DBConnect{
 		return $this->statement;
 	}
 
+	//sử dụng cho Insert/Update/Delete
+	public function executeQuery($option = []){
+		$stmt = $this->exec($option);
+		return $stmt->execute();
+	}
+
 	//trả về nhiều dòng
 	public function loadAllRows($option = []){
 
@@ -53,27 +59,13 @@ class DBConnect{
 		}
 		return false;
 	}
+
+	public function getLastId(){
+		return $this->connect->lastInsertId();
+	}
+
+	public function disconnect(){
+		$this->connect = NULL;
+	}
 }
-//php1508
-
-
-$c = new DBConnect('php1508','root','');
-
-/*$query = "SELECT * FROM users";
-$c->setQuery($query);
-$result = $c->loadAllRows();*/
-
-$query = "SELECT * FROM users WHERE username = ? OR id  = ? ";
-$option = ['huonghuong',2];
-
-$c->setQuery($query);
-//$result = $c->loadAllRows($option);
-$result = $c->loadRow($option);
-
-echo "<pre>";
-print_r($result);
-echo "</pre>";
-
-
-
 ?>
