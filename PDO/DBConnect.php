@@ -6,7 +6,6 @@ class DBConnect{
 	protected $sql;
 	protected $statement;
 
-
 	public function __construct($databasename,$user,$password){
 		try{
 			$this->connect = new PDO("mysql:host=localhost;dbname=$databasename", "$user", "$password"); 
@@ -21,7 +20,7 @@ class DBConnect{
 		$this->sql = $query;
 	}
 
-	public function exec($option = []){
+	public function setStatement($option = []){
 		$this->statement = $this->connect->prepare($this->sql);
 		$sl = count($option);
 		if($sl>0){
@@ -36,14 +35,14 @@ class DBConnect{
 
 	//sử dụng cho Insert/Update/Delete
 	public function executeQuery($option = []){
-		$stmt = $this->exec($option);
+		$stmt = $this->setStatement($option);
 		return $stmt->execute();
 	}
 
 	//trả về nhiều dòng
 	public function loadAllRows($option = []){
 
-		$stmt = $this->exec($option);
+		$stmt = $this->setStatement($option);
 		if($stmt->execute()){
 			return $this->statement->fetchAll(PDO::FETCH_OBJ);
 		}
@@ -53,7 +52,7 @@ class DBConnect{
 	//trả về 1 dòng
 	public function loadRow($option = []){
 
-		$stmt = $this->exec($option);
+		$stmt = $this->setStatement($option);
 		if($stmt->execute()){
 			return $this->statement->fetch(PDO::FETCH_OBJ);
 		}
